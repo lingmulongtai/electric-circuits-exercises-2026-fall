@@ -1,0 +1,12 @@
+# Raw course archive and third-party installers
+OneDrive_1_11-22-2026.zip
+OneDrive_1_11-22-2026/
+Electric Circuits Exercises.pdf
+
+# PSpice temporary/binary cache files
+*.dat
+*.mif
+*.1OP
+*.xrf
+*.ind
+*.prb
