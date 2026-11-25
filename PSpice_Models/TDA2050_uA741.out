@@ -1,0 +1,322 @@
+
+**** 11/23/26 04:35:00 *********** Evaluation PSpice (Nov 1999) **************
+
+ * TDA2050_uA741.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Mon Nov 23 04:30:00 2026
+
+
+** Analysis setup **
+.ac DEC 50 0.1 100Meg
+.tran 5us 5ms 0 5us
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+.lib "TDA2050_SIMPLE.lib"
+
+.INC "TDA2050_uA741.net"
+
+**** INCLUDING TDA2050_uA741.net ****
+* Schematics Netlist *
+
+V_Vs         VS 0 15V
+V_Vin        VIN 0 DC 0V AC 1V
++SIN 0V 0.1V 1kHz 0 0 0
+R_R1         VS VBIAS  22k  
+R_R2         0 VBIAS  22k  
+R_R3         INP VBIAS  22k  
+R_R4         NC4 INM  680  
+R_R5         INM VOUT_AMP  22k  
+R_R6         NZOBEL VOUT_AMP  2.2  
+R_RL         0 VOUT  10k  
+C_C1         VIN INP  2.2u  
+C_C2         0 VBIAS  100u  
+C_C3         0 VS  1000u  
+C_C4         0 NC4  22u  
+C_C5         0 VS  100n  
+C_C6         0 NZOBEL  0.47u  
+C_C7         VOUT_AMP VOUT  1000u  
+X_U1         INP INM VS 0 VOUT_AMP uA741
+
+**** RESUMING TDA2050_uA741.cir ****
+.INC "TDA2050_uA741.als"
+
+
+
+**** INCLUDING TDA2050_uA741.als ****
+* Schematics Aliases *
+
+.ALIASES
+V_Vs            Vs(+=VS -=0 )
+V_Vin           Vin(+=VIN -=0 )
+R_R1            R1(1=VBIAS 2=VS )
+R_R2            R2(1=0 2=VBIAS )
+R_R3            R3(1=INP 2=VBIAS )
+R_R4            R4(1=NC4 2=INM )
+R_R5            R5(1=INM 2=VOUT_AMP )
+R_R6            R6(1=NZOBEL 2=VOUT_AMP )
+R_RL            RL(1=0 2=VOUT )
+C_C1            C1(1=VIN 2=INP )
+C_C2            C2(1=0 2=VBIAS )
+C_C3            C3(1=0 2=VS )
+C_C4            C4(1=0 2=NC4 )
+C_C5            C5(1=0 2=VS )
+C_C6            C6(1=0 2=NZOBEL )
+C_C7            C7(1=VOUT_AMP 2=VOUT )
+_    _(VS=VS)
+_    _(VIN=VIN)
+_    _(VBIAS=VBIAS)
+_    _(INP=INP)
+_    _(INM=INM)
+_    _(NC4=NC4)
+_    _(VOUT_AMP=VOUT_AMP)
+_    _(NZOBEL=NZOBEL)
+_    _(VOUT=VOUT)
+.ENDALIASES
+
+**** RESUMING TDA2050_uA741.cir ****
+.probe
+
+
+.END
+
+**** 11/23/26 04:35:00 *********** Evaluation PSpice (Nov 1999) **************
+
+ * TDA2050_uA741.sch
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.dx         
+          IS  800.000000E-18 
+          RS    1            
+
+
+**** 11/23/26 04:35:00 *********** Evaluation PSpice (Nov 1999) **************
+
+ * TDA2050_uA741.sch
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U1.qx         
+               NPN             
+          IS  800.000000E-18 
+          BF   93.75         
+          NF    1            
+          BR    1            
+          NR    1            
+          CN    2.42         
+           D     .87         
+
+
+**** 11/23/26 04:35:00 *********** Evaluation PSpice (Nov 1999) **************
+
+ * TDA2050_uA741.sch
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   VS)   15.0000  (  INM)    7.4974  (  INP)    7.4974  (  NC4)    7.4974      
+
+(  VIN)    0.0000  ( VOUT)    0.0000  (VBIAS)    7.4991  (NZOBEL)    7.4991     
+
+(X_U1.6) 81.20E-09 (X_U1.7)    7.4991 (X_U1.8)    7.4991 (X_U1.9)    0.0000     
+
+(X_U1.10)    6.8897                   (X_U1.11)   14.9600                       
+
+(X_U1.12)   14.9600                   (X_U1.13)    6.9036                       
+
+(X_U1.14)    6.9036                   (X_U1.53)   14.0000                       
+
+(X_U1.54)    1.0000                   (X_U1.90)-35.43E-06                       
+
+(X_U1.91)   40.0000                   (X_U1.92)  -40.0000                       
+
+(X_U1.99)    7.5000                   (VOUT_AMP)    7.4991                  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vs        -1.182E-03
+    V_Vin        0.000E+00
+    X_U1.vb      8.120E-13
+    X_U1.vc      6.502E-12
+    X_U1.ve      6.500E-12
+    X_U1.vlim   -3.543E-08
+    X_U1.vlp    -4.000E-11
+    X_U1.vln    -4.000E-11
+
+    TOTAL POWER DISSIPATION   1.77E-02  WATTS
+
+
+**** 11/23/26 04:35:00 *********** Evaluation PSpice (Nov 1999) **************
+
+ * TDA2050_uA741.sch
+
+
+ ****     OPERATING POINT INFORMATION      TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+
+
+
+**** VOLTAGE-CONTROLLED CURRENT SOURCES
+
+
+NAME         X_U1.ga     X_U1.gcm  
+I-SOURCE    -3.639E-09  -3.638E-09
+
+
+**** VOLTAGE-CONTROLLED VOLTAGE SOURCES
+
+
+NAME         X_U1.egnd 
+V-SOURCE     7.500E+00
+I-SOURCE    -8.412E-09
+
+
+**** CURRENT-CONTROLLED CURRENT SOURCES
+
+
+NAME         X_U1.fb   
+I-SOURCE     9.103E-06
+
+
+**** CURRENT-CONTROLLED VOLTAGE SOURCES
+
+
+NAME         X_U1.hlim 
+V-SOURCE    -3.543E-05
+I-SOURCE     7.087E-17
+
+
+**** DIODES
+
+
+NAME         X_U1.dc     X_U1.de     X_U1.dlp    X_U1.dln    X_U1.dp   
+MODEL        X_U1.dx     X_U1.dx     X_U1.dx     X_U1.dx     X_U1.dx   
+ID          -6.50E-12   -6.50E-12   -4.00E-11   -4.00E-11   -1.50E-11 
+VD          -6.50E+00   -6.50E+00   -4.00E+01   -4.00E+01   -1.50E+01 
+REQ          1.00E+12    1.00E+12    1.00E+12    1.00E+12    1.00E+12 
+CAP          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+
+
+**** BIPOLAR JUNCTION TRANSISTORS
+
+
+NAME         X_U1.q1     X_U1.q2   
+MODEL        X_U1.qx     X_U1.qx   
+IB           7.98E-08    7.97E-08 
+IC           7.48E-06    7.48E-06 
+VBE          5.94E-01    5.94E-01 
+VBC         -7.46E+00   -7.46E+00 
+VCE          8.06E+00    8.06E+00 
+BETADC       9.38E+01    9.38E+01 
+GM           2.89E-04    2.89E-04 
+RPI          3.24E+05    3.24E+05 
+RX           0.00E+00    0.00E+00 
+RO           1.00E+12    1.00E+12 
+CBE          0.00E+00    0.00E+00 
+CBC          0.00E+00    0.00E+00 
+CJS          0.00E+00    0.00E+00 
+BETAAC       9.38E+01    9.38E+01 
+CBX/CBX2     0.00E+00    0.00E+00 
+FT/FT2       4.60E+15    4.60E+15 
+
+
+**** 11/23/26 04:35:00 *********** Evaluation PSpice (Nov 1999) **************
+
+ * TDA2050_uA741.sch
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   VS)   15.0000  (  INM)    7.4974  (  INP)    7.4974  (  NC4)    7.4974      
+
+(  VIN)    0.0000  ( VOUT)    0.0000  (VBIAS)    7.4991  (NZOBEL)    7.4991     
+
+(X_U1.6) 80.76E-09 (X_U1.7)    7.4991 (X_U1.8)    7.4991 (X_U1.9)    0.0000     
+
+(X_U1.10)    6.8897                   (X_U1.11)   14.9600                       
+
+(X_U1.12)   14.9600                   (X_U1.13)    6.9036                       
+
+(X_U1.14)    6.9036                   (X_U1.53)   14.0000                       
+
+(X_U1.54)    1.0000                   (X_U1.90)-7.413E-06                       
+
+(X_U1.91)   40.0000                   (X_U1.92)  -40.0000                       
+
+(X_U1.99)    7.5000                   (VOUT_AMP)    7.4991                  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vs        -1.182E-03
+    V_Vin        0.000E+00
+    X_U1.vb      8.077E-13
+    X_U1.vc      6.502E-12
+    X_U1.ve      6.500E-12
+    X_U1.vlim   -7.413E-09
+    X_U1.vlp    -4.000E-11
+    X_U1.vln    -4.000E-11
+
+    TOTAL POWER DISSIPATION   1.77E-02  WATTS
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .05
+

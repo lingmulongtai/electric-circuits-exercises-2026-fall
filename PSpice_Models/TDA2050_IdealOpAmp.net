@@ -1,0 +1,20 @@
+* Schematics Netlist *
+
+V_Vs         VS 0 15V
+V_Vin        VIN 0 DC 0V AC 1V
++SIN 0V 0.1V 1kHz 0 0 0
+R_R1         VS VBIAS  22k  
+R_R2         0 VBIAS  22k  
+R_R3         INP VBIAS  22k  
+R_R4         NC4 INM  680  
+R_R5         INM VOUT_AMP  22k  
+R_R6         NZOBEL VOUT_AMP  2.2  
+R_RL         0 VOUT  8  
+C_C1         VIN INP  2.2u  
+C_C2         0 VBIAS  100u  
+C_C3         0 VS  1000u  
+C_C4         0 NC4  22u  
+C_C5         0 VS  100n  
+C_C6         0 NZOBEL  0.47u  
+C_C7         VOUT_AMP VOUT  1000u  
+E_U1         VOUT_AMP 0 VALUE {LIMIT(V(INP,INM)*1E6,0V,15V)}

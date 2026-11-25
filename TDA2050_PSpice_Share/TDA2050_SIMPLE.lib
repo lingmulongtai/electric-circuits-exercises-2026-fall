@@ -1,0 +1,73 @@
+
+**********************************************************
+* TDA2050 - Simplified Behavioral Macromodel
+* Model developed using OP AMP BUILDER - Level 2
+* Adapted for PSpice 9.1
+*
+* Symbol: TDA2050_SIMPLE.slb
+* Model:  TDA2050_SIMPLE
+*
+* Pin order: INP INM VN OUT VP
+*
+* INP : Non-inverting input
+* INM : Inverting input
+* VN  : Negative supply
+* OUT : Output
+* VP  : Positive supply
+**********************************************************
+
+.SUBCKT TDA2050_SIMPLE INP INM VN OUT VP
+
+* INPUT RESISTANCE
+RIN INP INM 500e3
+
+* AMPLIFIER STAGE: GAIN, POLE, SLEW
+* Aol = 10000 (80 dB)
+* fu = 2.65e6 Hz
+* fp1 = 265 Hz
+* I1max = 0.001 A
+* Slew rate = 8 V/us
+
+G1 100 10 VALUE = {LIMIT(0.0020813*V(INP,INM),-0.001,0.001)}
+R1 10 100 4.8047e+6
+C1 10 100 1.2500e-10
+
+* SECOND POLE: fp2 = 26.5 MHz
+G2 100 20 VALUE = {0.001*V(10,100)}
+R2 20 100 1000
+C2 20 100 6.0058e-12
+
+* THIRD POLE: fp3 = 26.5 MHz
+G3 100 30 VALUE = {0.001*V(20,100)}
+R3 30 100 1000
+C3 30 100 6.0058e-12
+
+* INTERNAL VOLTAGE REFERENCE
+EREF 100 0 VALUE = {(V(VP)+V(VN))/2}
+
+* OUTPUT VOLTAGE LIMITS
+* Nominal headroom = 1.5 V
+
+DVLP 10 91 DNOM
+EVLP 91 0 VALUE = {-2.1908+V(VP)}
+
+DVLN 93 10 DNOM
+EVLN 93 0 VALUE = {2.1908+V(VN)}
+
+* OUTPUT CURRENT LIMITS
+* Maximum output current = 5 A
+
+DCLP 10 95 DNOM
+ECLP 95 OUT VALUE = {-0.19088}
+
+DCLN 97 10 DNOM
+ECLN OUT 97 VALUE = {-0.19088}
+
+* DIODE MODEL
+.MODEL DNOM D(IS=1e-15)
+
+* OUTPUT STAGE
+EOUT 80 100 30 100 1
+ROUT 80 OUT 0.1
+
+.ENDS TDA2050_SIMPLE

@@ -1,0 +1,31 @@
+* Schematics Aliases *
+
+.ALIASES
+V_Vs            Vs(+=VS -=0 )
+V_Vin           Vin(+=VIN -=0 )
+R_R1            R1(1=VBIAS 2=VS )
+R_R2            R2(1=0 2=VBIAS )
+R_R3            R3(1=INP 2=VBIAS )
+R_R4            R4(1=NC4 2=INM )
+R_R5            R5(1=INM 2=VOUT_AMP )
+R_R6            R6(1=NZOBEL 2=VOUT_AMP )
+R_RL            RL(1=0 2=VOUT )
+C_C1            C1(1=VIN 2=INP )
+C_C2            C2(1=0 2=VBIAS )
+C_C3            C3(1=0 2=VS )
+C_C4            C4(1=0 2=NC4 )
+C_C5            C5(1=0 2=VS )
+C_C6            C6(1=0 2=NZOBEL )
+C_C7            C7(1=VOUT_AMP 2=VOUT )
+X_U1            U1(+=INP -=INM V-=0 OUT=VOUT_AMP V+=VS )
+_    _(VS=VS)
+_    _(VIN=VIN)
+_    _(VBIAS=VBIAS)
+_    _(INP=INP)
+_    _(INM=INM)
+_    _(NC4=NC4)
+_    _(VOUT_AMP=VOUT_AMP)
+_    _(NZOBEL=NZOBEL)
+_    _(VOUT=VOUT)
+.ENDALIASES
+

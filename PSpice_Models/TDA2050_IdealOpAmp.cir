@@ -1,0 +1,24 @@
+* TDA2050_IdealOpAmp.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Mon Nov 23 04:30:00 2026
+
+
+** Analysis setup **
+.ac DEC 50 0.1 100Meg
+.tran 5us 5ms 0 5us
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+.lib "TDA2050_SIMPLE.lib"
+
+.INC "TDA2050_IdealOpAmp.net"
+.INC "TDA2050_IdealOpAmp.als"
+
+
+.probe
+
+
+.END

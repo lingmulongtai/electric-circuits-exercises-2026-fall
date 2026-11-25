@@ -1,0 +1,43 @@
+*version 9.1 842196353
+@index
+symloc TDA2050_SIMPLE 0 835
+*symbol TDA2050_SIMPLE
+d APCatalano Model for KUAS OpAmp TDA2050
+@type p
+@attributes
+a 0 s 9 0 56 8 hcn 100 REFDES=U?
+a 0 sp 11 0 14 70 hcn 100 PART=TDA2050_SIMPLE
+a 0 sp 0 0 50 60 hcn 100 MODEL=TDA2050_SIMPLE
+a 0 s 0:13 0 0 0 hln 100 TEMPLATE=X^@REFDES %+ %- %V- %OUT %V+ @MODEL
+@pins
+p 0 67 32 hrn 100 OUT n 80 30 u
+a 0 s 0 0 0 0 hln 100 ERC=o
+a 0 s 1 0 75 28 hln 100 PIN=4
+p 2 13 12 hln 100 + n 0 10 h
+a 0 s 0 0 0 0 hln 100 ERC=i
+a 0 s 1 0 5 8 hrn 100 PIN=1
+p 2 13 52 hln 100 - n 0 50 h
+a 0 s 0 0 0 0 hln 100 ERC=i
+a 0 s 1 0 5 48 hrn 100 PIN=2
+p 2 37 22 hcn 100 V+ n 40 0 d
+a 0 s 0 0 0 0 hln 100 ERC=i
+a 0 s 1 0 45 3 hcn 100 PIN=5
+p 2 37 44 hcn 100 V- n 40 60 v
+a 0 s 0 0 0 0 hln 100 ERC=i
+a 0 s 1 0 35 62 hcn 100 PIN=3
+@graphics 80 60 0 10 10
+v 0 70 30
+10 0
+;
+v 0 10 60
+70 30
+;
+v 0 40 50
+40 45
+;
+v 0 10 0
+10 60
+;
+v 0 40 10
+40 15
+;

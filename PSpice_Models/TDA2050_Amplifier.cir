@@ -1,0 +1,27 @@
+* TDA2050_Amplifier.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Mon Nov 23 14:32:11 2026
+
+
+
+** Analysis setup **
+.ac DEC 50 0.1 100Meg
+.noise  V([VOUT]) V_Vin 30
+.tran 5us 5ms 0 5us
+.four 1Meg V([VOUT])
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+.lib "TDA2050_SIMPLE.lib"
+
+.INC "TDA2050_Amplifier.net"
+.INC "TDA2050_Amplifier.als"
+
+
+.probe
+
+
+.END
